@@ -1,0 +1,45 @@
+def median_of_medians(arr, k):
+    if k < 0 or k >= len(arr):
+        raise ValueError("k is out of bounds")
+
+    if len(arr) <= 5:
+        return sorted(arr)[k]
+
+    # Divide the array into groups of 5 and find the medians
+    medians = [sorted(arr[i:i + 5])[len(arr[i:i + 5]) // 2] for i in range(0, len(arr), 5)]
+    
+    # Find the median of the medians
+    pivot = median_of_medians(medians, len(medians) // 2)
+
+    # Partition the array around the pivot
+    low = [x for x in arr if x < pivot]
+    high = [x for x in arr if x > pivot]
+    pivots = [x for x in arr if x == pivot]
+
+    if k < len(low):
+        return median_of_medians(low, k)
+    elif k < len(low) + len(pivots):
+        return pivots[0]
+    else:
+        return median_of_medians(high, k - len(low) - len(pivots))
+
+
+# Test cases
+test_arrays = [
+    ([3, 2, 1, 5, 4, 6, 7], 4),  # Normal case
+    ([1, 1, 1, 1, 1], 2),         # Array with duplicates
+    ([10], 0),                    # Single element array
+    ([3, 2, 2, 3, 1, 1, 1], 5),  # Duplicates and unsorted
+    ([], 0),                      # Empty array
+    ([5, 4, 3, 2, 1], 3)          # Reversed array
+]
+
+for arr, k in test_arrays:
+    try:
+        print(f"Array: {arr}, k={k}")
+        print(f"Deterministic result: {median_of_medians(arr, k)}")
+    except ValueError as e:
+        print(e)
+
+
+
