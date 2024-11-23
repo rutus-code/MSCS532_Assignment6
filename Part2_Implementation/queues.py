@@ -20,3 +20,14 @@ class Queue:
 
     def __str__(self):
         return str(self.data)
+
+# Creating a queue
+queue = Queue()
+queue.enqueue(10)  # Enqueue 10
+queue.enqueue(20)  # Enqueue 20
+queue.enqueue(30)  # Enqueue 30
+print("Queue after enqueues:", queue)
+
+print("Dequeued element:", queue.dequeue())  # Dequeue front element
+print("Front element:", queue.peek())  # Peek at the front element
+print("Is queue empty?", queue.is_empty())

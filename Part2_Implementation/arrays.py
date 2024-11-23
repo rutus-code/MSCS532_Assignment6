@@ -33,3 +33,15 @@ class Array:
 
     def __str__(self):
         return str([self.data[i] for i in range(self.size)])
+
+# Creating an array with capacity 5
+array = Array(5)
+array.insert(0, 10)  # Insert 10 at index 0
+array.insert(1, 20)  # Insert 20 at index 1
+array.insert(1, 15)  # Insert 15 at index 1 (shifts others)
+print("Array after insertions:", array)
+
+array.delete(1)  # Delete the element at index 1
+print("Array after deletion:", array)
+
+print("Access element at index 0:", array.access(0))

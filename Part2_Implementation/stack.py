@@ -20,3 +20,14 @@ class Stack:
 
     def __str__(self):
         return str(self.data)
+
+# Creating a stack
+stack = Stack()
+stack.push(10)  # Push 10 onto the stack
+stack.push(20)  # Push 20
+stack.push(30)  # Push 30
+print("Stack after pushes:", stack)
+
+print("Popped element:", stack.pop())  # Pop top element
+print("Top element:", stack.peek())  # Peek at the top element
+print("Is stack empty?", stack.is_empty())

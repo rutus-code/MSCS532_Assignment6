@@ -16,3 +16,13 @@ class Matrix:
 
     def __str__(self):
         return "\n".join([" ".join(map(str, row)) for row in self.data])
+
+# Creating a 3x3 matrix
+matrix = Matrix(3, 3)
+matrix.insert(0, 0, 1)  # Insert 1 at (0, 0)
+matrix.insert(1, 1, 2)  # Insert 2 at (1, 1)
+matrix.insert(2, 2, 3)  # Insert 3 at (2, 2)
+print("Matrix:")
+print(matrix)
+
+print("Access element at (1, 1):", matrix.access(1, 1))
