@@ -22,8 +22,6 @@ def randomized_quickselect(arr, k):
     else:
         return randomized_quickselect(high, k - len(low) - len(pivots))
 
-
-# Example Usage
 # Test cases
 test_arrays = [
     ([3, 2, 1, 5, 4, 6, 7], 4),  # Normal case
